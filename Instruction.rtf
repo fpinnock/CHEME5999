@@ -1,0 +1,284 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\froman\fcharset0 TimesNewRomanPSMT;}
+{\colortbl;\red255\green255\blue255;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc1\levelnfcn1\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{upper-roman\}.}{\leveltext\leveltemplateid1\'02\'00.;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listlevel\levelnfc4\levelnfcn4\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{lower-alpha\}.}{\leveltext\leveltemplateid2\'02\'01.;}{\levelnumbers\'01;}\fi-360\li1440\lin1440 }{\listlevel\levelnfc2\levelnfcn2\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{lower-roman\}.}{\leveltext\leveltemplateid3\'02\'02.;}{\levelnumbers\'01;}\fi-360\li2160\lin2160 }{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}.}{\leveltext\leveltemplateid4\'02\'03.;}{\levelnumbers\'01;}\fi-360\li2880\lin2880 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc1\levelnfcn1\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{upper-roman\}.}{\leveltext\leveltemplateid101\'02\'00.;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listlevel\levelnfc4\levelnfcn4\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{lower-alpha\}.}{\leveltext\leveltemplateid102\'02\'01.;}{\levelnumbers\'01;}\fi-360\li1440\lin1440 }{\listlevel\levelnfc2\levelnfcn2\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{lower-roman\}.}{\leveltext\leveltemplateid103\'02\'02.;}{\levelnumbers\'01;}\fi-360\li2160\lin2160 }{\listname ;}\listid2}
+{\list\listtemplateid3\listhybrid{\listlevel\levelnfc1\levelnfcn1\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{upper-roman\}.}{\leveltext\leveltemplateid201\'02\'00.;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listlevel\levelnfc4\levelnfcn4\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{lower-alpha\}.}{\leveltext\leveltemplateid202\'02\'01.;}{\levelnumbers\'01;}\fi-360\li1440\lin1440 }{\listlevel\levelnfc2\levelnfcn2\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{lower-roman\}.}{\leveltext\leveltemplateid203\'02\'02.;}{\levelnumbers\'01;}\fi-360\li2160\lin2160 }{\listname ;}\listid3}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}{\listoverride\listid3\listoverridecount0\ls3}}
+\margl1440\margr1440\vieww14680\viewh9140\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs26 \cf0 Program Instruction:\
+====================
+\fs24 \
+\
+The following instructions outline the analysis  described in CHEME5999_writeup_FKP.pdf   All cade is written in Matlab and was run using version R2018a. The governing ODEs are written to describe species concentration over time in a microfluidic device designed to facilitate the enzymatic glycosylation of a target protein.  \
+\
+Our goal was to (A) develop a model for chip-based glycosylation  and (B) to explore different methods for estimating key parameters, including: \
+   
+\b Km1 - 
+\b0 michaelis mention constant for sugar nucleotide\
+   
+\b Km2 -
+\b0  michaelis mention constant for bare peptide, \
+   
+\b kcat  - 
+\b0  turnover rate \
+  
+\b  n - 
+\b0 cooperativity   \
+\
+The final program  CHEME5999_FinalPset.m compares model predictions based on an original proposed parameter set  to simulations performed with 
+\b (1) 
+\b0 real parameters take from literature, 
+\b (2) 
+\b0 parameters estimated using a simulated annealing (SA) algorithm, and 
+\b (3)
+\b0  parameters learned from \'93fake\'94 experiments.   \
+\
+
+\fs26 \ul Comparison of original parameter versus \'93real\'94(1) or \'93learned\'94 parameters 
+\b (2&3) 
+\fs24 \ulnone \
+\
+
+\b0 Run CHEME5999_FinalPset.m . The script will generate graphs comparing the original model to  model predictions using real parameters (fig 1),  SA parameters (fig 2), and experimental parameters (fig 3). \
+\
+1.  Real Parameters :  real parameters were taken from 
+\f1 Gerber, S. et al. Mechanism of Bacterial Oligosaccharyltransferase: In vitro quanitification of sequon binding and caralysis. 
+\i J. Biol. Chem
+\i0 . 
+\b 2013
+\b0 , 288, 8849 \'96 8861. \
+\
+
+\f0 2.  Simulated Annealing Parameters: CHEME5999_PS2_SA.m  is a learning algorithm that uses simulated annealing to estimate 
+\b Km1, Km2, kcat, and n\
+
+\b0 \
+3. Experimental Design Parameters. See  \'93Experimental Design Algorithm\'94  section and associated folder \'93 CHEME5999_ED_Algorithm\'94.  This set of files uses fake experiments to back out estimates for 
+\b Km1, Km2, kcat, and n
+\b0 .   \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs26 \cf0 \ul \ulc0 Experimental Design Algorithm\ulnone \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs24 \cf0 This section describes how to use the compilation of matlab files in the \'93 CHEME5999_ED_Algorithm\'94 folder to estimate values for 
+\b Km1, Km2, kcat, and n
+\b0 .  The related files include:\
+\
+        1. 
+\b EXP_Data_x1.m             11. Sensitivity Analysis         21. Estimation_Param.m\
+        2. EXP_Data_x2.m             12. DataFile.m                        22. Estimation_fmincon.m \
+        3. EXP_Data_x3.m	         13. Exp_Data.m		   23. P_solution2.txt\
+        4. EXP_Data__Eo.m	         14. Call_ODE.m                     24. Analysis_Param.m\
+        5. EXP_Data_x12.m           15. Analytical_SSM.m           25. Analysis_func.m \
+        6. Data_EXP1.txt	         16. senfunction.m                 26. DATA_EXP_3.txt \
+        7. Data_EXP2.txt                17. Jacobian.m\
+        8. Data_EXP3.txt                18. P_matrix.m \
+        9. Data_EXP4.txt                19. Normalize_SSM.m\
+      10. Data_EXP5.txt                 20. Identifiability.m 
+\b0 \
+\
+\
+\pard\pardeftab720\li1080\fi-720\ri720\partightenfactor0
+\ls1\ilvl0\cf0 I.	Generate Fake Experimental Data\
+\pard\pardeftab720\li1440\fi-360\ri-3621\partightenfactor0
+\ls1\ilvl1
+\b \cf0 a.	EXP_Data_x1/x2/x3/Eo/x12.m
+\b0       
+\b Data_EXP1/2/3/4/5.txt
+\b0 \
+\pard\pardeftab720\li2160\fi-180\ri-3630\partightenfactor0
+\ls1\ilvl2
+\b \cf0 i.	 EXP_Data_x1/x2/x3/Eo/x12.m (script)
+\b0  :  different fake experiments\
+\pard\pardeftab720\li2880\fi-360\ri-3610\partightenfactor0
+\ls1\ilvl3\cf0 1.	Each experiment alters initial concentration and guess for each state (i.e. species) variable. \
+\pard\pardeftab720\li2880\fi-360\ri720\partightenfactor0
+\ls1\ilvl3\cf0 2.	Saves output in txt file \
+\pard\pardeftab720\li2160\fi-180\ri720\partightenfactor0
+\ls1\ilvl2
+\b \cf0 ii. Data_EXP1/2/3/4/5.txt
+\b0 : data output \
+\pard\pardeftab720\li2880\fi-360\ri-3623\partightenfactor0
+\ls1\ilvl3\cf0 1.	Contains concentration (of each species) vs. time data for each experiment. \
+\
+\pard\pardeftab720\li1080\fi-720\ri720\partightenfactor0
+\ls1\ilvl3\cf0 II.	Perform sensitivity analysis. Run 
+\b Sensitivity_Analysis.m (script) 
+\b0 \
+\pard\pardeftab720\li1440\fi-360\ri720\partightenfactor0
+\ls1\ilvl1
+\b \cf0 a.	DataFile.m (fxn) \
+\pard\pardeftab720\li2160\fi-180\ri-5020\partightenfactor0
+\ls1\ilvl2
+\b0 \cf0 i.	For each experiment, specifies both the initial guesses for each state variable and the enzyme concentration in the device\
+\pard\pardeftab720\li2160\fi-180\ri-3587\partightenfactor0
+\ls1\ilvl2\cf0 ii. Specifies initial \'93guess\'94 parameter set (based on model from pset 1)\
+\pard\pardeftab720\li2160\fi-180\ri720\partightenfactor0
+\ls1\ilvl2\cf0 iii. Defines range of guesses for optimal parameter sets\
+\pard\pardeftab720\li1440\fi-360\ri720\partightenfactor0
+\ls1\ilvl1
+\b \cf0 b.	Exp_Data.m (fxn) \
+\pard\tx13018\pardeftab720\li2160\fi-180\ri-5031\partightenfactor0
+\ls1\ilvl2
+\b0 \cf0 i.Loads experimental data from text files generated in STEP I, and passes them to main script for sensitivity analysis (
+\b Sensitivty_Analysis.m
+\b0 ). \
+\pard\pardeftab720\li1440\fi-360\ri720\partightenfactor0
+\ls1\ilvl1
+\b \cf0 c.	Call_ODE.m (fxn) \
+\pard\pardeftab720\li2160\fi-180\ri-4691\partightenfactor0
+\ls1\ilvl2
+\b0 \cf0 i.	Defines model equations and conditions for each experiment (exact same conditions specified in 
+\b EXP_DATA_x1/x2/\'85m
+\b0  scripts. \
+\pard\pardeftab720\li1440\fi-360\ri720\partightenfactor0
+\ls1\ilvl1
+\b \cf0 d.	Analytical_SSM.m (fxn) \
+\pard\pardeftab720\li2160\fi-180\ri-5052\partightenfactor0
+\ls1\ilvl2
+\b0 \cf0 i.	Computes sensitivity matrix  ( \'93z\'94 matrix) using sensitivity coefficient model equations (
+\b senfunction.m
+\b0 , see below), which depends on the Jacobian matrix (
+\b Jacobian.m
+\b0 , see below) and  the Parameter Matrix ( 
+\b P_matrix.m
+\b0 , see below). \
+\pard\pardeftab720\li2160\fi-180\ri720\partightenfactor0
+\ls1\ilvl2
+\b \cf0 ii. Jacobian.m (fxn)\
+\pard\pardeftab720\li2880\fi-360\ri-4813\partightenfactor0
+\ls1\ilvl3
+\b0 \cf0 1.	Defines  Jacobian matrix derived from model equations. \
+\pard\pardeftab720\li2880\fi-360\ri-4774\partightenfactor0
+\ls1\ilvl3\cf0 2.	Specifies variations in parameter values between experiments, specifically  the Enzyme concentration. \
+\pard\pardeftab720\li2160\fi-180\ri720\partightenfactor0
+\ls1\ilvl2
+\b \cf0 iii. P_matrix.m\
+\pard\pardeftab720\li2880\fi-360\ri-3055\partightenfactor0
+\ls1\ilvl3
+\b0 \cf0 1.	Defines Parameter Matrix as derived from model equations \
+\pard\pardeftab720\li2880\fi-360\ri-5133\partightenfactor0
+\ls1\ilvl3\cf0 2.	Specifies variation in the parameter values (enzyme concentration) and in the initial values of state variables between experiments.   \
+\pard\pardeftab720\li2160\fi-180\ri720\partightenfactor0
+\ls1\ilvl2
+\b \cf0 iv. senfunction.m \
+\pard\pardeftab720\li2880\fi-360\partightenfactor0
+\ls1\ilvl3
+\b0 \cf0 1.	Function  defines model equations for computing sensitivity coefficient (z) matrix\
+\pard\pardeftab720\li2160\fi-180\ri720\partightenfactor0
+\ls1\ilvl2
+\b \cf0 v. Normalize_SSM.m (fxn) \
+\pard\pardeftab720\li2880\fi-360\ri-1323\partightenfactor0
+\ls1\ilvl3
+\b0 \cf0 1.	Normalize sensitivity matrix (SSM) ouput by  
+\b senfunction.m 
+\b0 \
+\pard\pardeftab720\li1440\fi-360\ri720\partightenfactor0
+\ls1\ilvl1
+\b \cf0 e.	Identifiability.m (fxn)\
+\pard\pardeftab720\li2160\fi-180\ri-3319\partightenfactor0
+\ls1\ilvl2
+\b0 \cf0 i.	 Determines which parameters are identifiable based on SSM computed in 
+\b Analytical_SSM.m
+\b0  \
+\pard\pardeftab720\li2160\fi-180\ri720\partightenfactor0
+\ls1\ilvl2\cf0 ii.	 Follows McAuley procedure (
+\b doi:10.1081 PRE-120024426
+\b0 ) \
+\
+\pard\pardeftab720\li1080\fi-720\ri720\partightenfactor0
+\ls2\ilvl0\cf0 III. Parameter estimation. Run 
+\b Estimation _Param.m (script)
+\b0  \
+\pard\pardeftab720\li1440\fi-360\ri720\partightenfactor0
+\ls2\ilvl1
+\b \cf0 a.	DataFile.m (fxn) \
+\pard\pardeftab720\li2160\fi-180\ri720\partightenfactor0
+\ls2\ilvl2
+\b0 \cf0 i.	See part II for description \
+\pard\pardeftab720\li1440\fi-360\ri720\partightenfactor0
+\ls2\ilvl1
+\b \cf0 b.	Exp_Data.m (fxn)\
+\pard\pardeftab720\li2160\fi-180\ri720\partightenfactor0
+\ls2\ilvl2
+\b0 \cf0 i.	See part II for description \
+\pard\pardeftab720\li1440\fi-360\ri720\partightenfactor0
+\ls2\ilvl1
+\b \cf0 c.	Call_ODE,m  (fxn) \
+\pard\pardeftab720\li2160\fi-180\ri720\partightenfactor0
+\ls2\ilvl2
+\b0 \cf0 i.	See part II for description \
+\pard\pardeftab720\li1440\fi-360\ri720\partightenfactor0
+\ls2\ilvl1
+\b \cf0 d.	Estimation_fmincon.m (fxn)\
+\pard\pardeftab720\li2160\fi-180\ri-4255\partightenfactor0
+\ls2\ilvl2
+\b0 \cf0 i.	Uses fmincon as learning algorithm to estimate optimal parameter values.  \
+\pard\pardeftab720\li1440\fi-360\ri-4809\partightenfactor0
+\ls2\ilvl1
+\b \cf0 e.	
+\b0 Writes and saves estimated parameter sets for all iterations to 
+\b P_solution2.txt
+\b0  \
+\pard\pardeftab720\li1440\ri720\partightenfactor0
+\cf0 \
+\pard\pardeftab720\li1080\fi-720\ri720\partightenfactor0
+\ls3\ilvl1\cf0 IV.	Analyze estimated parameters. Run 
+\b Analysis_Param.m (script)
+\b0  \
+\pard\pardeftab720\li1440\fi-360\ri720\partightenfactor0
+\ls3\ilvl1
+\b \cf0 a.	Analysis_func.m (fxn)\
+\pard\pardeftab720\li2160\fi-180\partightenfactor0
+\ls3\ilvl2
+\b0 \cf0 i.	Reads estimate parameters from 
+\b P_Solution2.txt
+\b0  and passes  them to 
+\b Analysis _Param.m
+\b0  to recreate trajectories with estimated parameters.  \
+\pard\pardeftab720\li1440\fi-360\ri720\partightenfactor0
+\ls3\ilvl1
+\b \cf0 b.	Exp_Data.m (fxn)\
+\pard\pardeftab720\li2160\fi-180\ri720\partightenfactor0
+\ls3\ilvl2
+\b0 \cf0 i.	See part II for description \
+\pard\pardeftab720\li1440\fi-360\ri720\partightenfactor0
+\ls3\ilvl1
+\b \cf0 c.	Call_ODE.m (fxn)\
+\pard\pardeftab720\li2160\fi-180\ri720\partightenfactor0
+\ls3\ilvl2
+\b0 \cf0 i.	See part II for description\
+\pard\pardeftab720\li1440\fi-360\ri720\partightenfactor0
+\ls3\ilvl1
+\b \cf0 d.	
+\b0 Write and saves graph of data points to 
+\b DATA_EXP_3.txt
+\b0  \
+\pard\pardeftab720\li2160\fi-180\ri-4489\partightenfactor0
+\ls3\ilvl2\cf0 i.	The data points include mean, lower bound, upper bound,  and normalized experimental data versus time.  
+\f1   \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0 \cf0 \
+\
+ \
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1 \cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0 \cf0 \
+
+\b \
+
+\b0 \
+}
